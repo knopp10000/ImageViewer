@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="Image Viewer:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/Image_Viewer_jar</output-path>
+    <root id="archive" name="Image Viewer.jar">
+      <element id="module-output" name="Image Viewer" />
+    </root>
+  </artifact>
+</component>

@@ -12,7 +12,6 @@ import java.net.URL;
 
 public class Main {
     private JPanel panel1;
-    private JButton getPictureButton;
     private JPanel PictureLabel;
     private static final String defImage = "https://i.ytimg.com/vi/wcIQQkgPFBM/hqdefault.jpg";
 
@@ -20,9 +19,8 @@ public class Main {
         JFrame frame = new JFrame("Main");
         frame.setContentPane(new Main("").panel1);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.pack();
         frame.setVisible(true);
-        frame.setBounds(0,0, 600, 600);
+        //frame.setBounds(0,0, 600, 600);
 
         Main desu = null;
         if (args.length < 1) // by default program will load AnyExample logo
@@ -34,33 +32,29 @@ public class Main {
             desu = new Main(args[0]);
             frame.setContentPane(desu.panel1);
         }
+        frame.pack();
     }
 
     public Main(String source){
         // loading image
+        BufferedImage screenImage = null;
 
-        getPictureButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent actionEvent) {
-                BufferedImage screenImage = null;
-                
-                try {
-                    if (source.startsWith("http://") || source.startsWith("https://") ) // http:// URL was specified
-                    {
-                        screenImage = ImageIO.read(new URL(source));
-                        System.out.print(source);
+        try {
+            if (source.startsWith("http://") || source.startsWith("https://") ) // http:// URL was specified
+            {
+                screenImage = ImageIO.read(new URL(source));
+                System.out.print(source);
+                addPicture(screenImage);
 
-                    }else if (source == ""){
-                        System.out.print("Erroooororororororor ");
-                    }else {
-                        screenImage = ImageIO.read(new File(source)); // otherwise - file
-                    }
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
+            }else if (source.equals("")){
+                System.out.print("Empty main call ");
+            }else {
+                screenImage = ImageIO.read(new File(source)); // otherwise - file
                 addPicture(screenImage);
             }
-        });
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
 
