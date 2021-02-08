@@ -42,11 +42,6 @@ public class Main {
 //        frame.add(picturePanel, BorderLayout.CENTER);
 
         //frame.setContentPane();
-
-
-
-
-
 //        Main desu;
 
 //        if (args.length < 1) // by default program will load AnyExample logo
